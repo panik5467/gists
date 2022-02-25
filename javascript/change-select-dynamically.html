@@ -1,0 +1,43 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<select id=aaa />
+<select id=foo />
+
+</script>
+(function($, window) {
+  $.fn.replaceOptions = function(options) {
+    var self, $option;
+
+    this.empty();
+    self = this;
+
+    $.each(options, function(index, option) {
+      $option = $("<option></option>")
+        .attr("value", option.value)
+        .text(option.label);
+      self.append($option);
+    });
+  };
+})(jQuery, window);
+
+//It expects an array of objects which contain "text" and "value" keys. So usage is as follows:
+
+$( "#aaa" ).change(function() {
+  $("#foo").replaceOptions(options[$(this).val()]);
+});
+
+
+var options = {
+0: [ {label: "none", value: null},{label: "t1", value: 1},
+  {label: "t2", value: 2}],
+1: [ {label: "one", value: 1},
+  {label: "two", value: 2}],
+2: [ {label: "A", value: 1},
+  {label: "B", value: 2}]
+};
+
+$("#aaa").replaceOptions(options[0]);
+</script>
+</body>
