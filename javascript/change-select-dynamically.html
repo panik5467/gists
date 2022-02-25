@@ -1,11 +1,18 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+body {margin:5em;background: #262b2f;}
+select {width:135px;height:25px}
+</style>
 </head>
 <body>
-<select id=aaa />
-<select id=foo />
+<div>
+<select class="a" ></select>
+<select class="b" ></select>
 
-</script>
+</div>
+
+<script>
 (function($, window) {
   $.fn.replaceOptions = function(options) {
     var self, $option;
@@ -24,8 +31,8 @@
 
 //It expects an array of objects which contain "text" and "value" keys. So usage is as follows:
 
-$( "#aaa" ).change(function() {
-  $("#foo").replaceOptions(options[$(this).val()]);
+$( ".a" ).change(function() {
+  $(".b").replaceOptions(options[$(this).val()]);
 });
 
 
@@ -38,6 +45,7 @@ var options = {
   {label: "B", value: 2}]
 };
 
-$("#aaa").replaceOptions(options[0]);
+$(".a").replaceOptions(options[0]);
+
 </script>
 </body>
