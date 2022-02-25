@@ -2,4 +2,4 @@
 <img src="/img/move-option.jpg">
 
 ## Change select dynamically
-<img src="https://raw.githubusercontent.com/panik5467/gists/main/img/select.jpg">
+<img src="/img/select.jpg">
