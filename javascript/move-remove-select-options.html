@@ -1,0 +1,106 @@
+<html>
+<head>
+
+<style>
+body {margin:5em;background: #262b2f;}
+select {width:135px;height:200px}
+nav  {
+display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 57%;
+}
+
+
+form {border:1px solid;
+margin:0 20px;
+padding:10px 10px 10px 80px;width:72rem;height:23rem}
+
+
+#F1,.F1 {background-color: beige;}
+#F2,.F2 {background-color: aqua;}
+#F3,.F3 {background-color: aquamarine;}
+#F4,.F4 {background-color: bisque;}
+
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<input class=F1 type=button value=component1>
+<input class=F2 type=button value=component2>
+<input class=F3 type=button value=component3>
+<input class=F4 type=button value=component4>
+<form class=F1>
+<h3>Component(1)</h3>
+<nav>
+
+      <select name="source" class="source" multiple>
+          <option value="one">Field-1</option>
+          <option value="two">Field-2</option>
+          <option value="one">Field-3</option>
+          <option value="two">Field-4</option>
+          <option value="one">Field-5</option>
+          <option value="two">Field-6</option>
+          <option value="one">Field-7</option>
+          <option value="two">Field-8</option>
+          <option value="two">Field-9</option>
+          <option value="two">Field-10</option>
+          <option value="one">Field-11</option>
+          <option value="two">Field-12</option>
+          <option value="one">Field-13</option>
+          <option value="two">Field-14</option>
+          <option value="one">Field-15</option>
+          <option value="two">Field-16</option>
+          <option value="one">Field-17</option>
+          <option value="two">Field-18</option>
+          <option value="two">Field-19</option>
+          <option value="two">Field-20</option>
+      </select>
+	  
+	  <div>
+      <input type="button" class="" value="&#129154;" onclick="moveItem();"><br/>
+      <input type="button" class="" value="&#129152;" onclick="removeItem();">
+	  </div>
+
+      <select name="target" class="target" multiple />
+
+
+
+</nav>
+</form>
+
+
+  
+<script>
+$("[type=button]").click(function(){
+  let cl = $( this ).attr("class");
+  if (cl.match("F")) {
+	$("form").attr("class",cl);
+    $("H3").text("Component(" + cl.substr(1,2) + ")");
+  }
+});
+
+
+function moveItem()
+{
+    var selected = $('.source option:selected');
+    selected.appendTo('.target');
+}
+
+
+function removeItem()
+{
+    var selected = $('.target option:selected');
+    selected.appendTo('.source');
+}
+
+</script>
+  
+  
+  
+</body>
+</html>
